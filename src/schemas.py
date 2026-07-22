@@ -3,7 +3,7 @@
 from pyspark.sql.types import *
 
 # products schema
-products_schema = StructType([
+product_schema = StructType([
 
     StructField("id", IntegerType(), True),
     StructField("title", StringType(), True),
@@ -80,7 +80,7 @@ products_schema = StructType([
 ])
 
 # carts schema
-carts_schema = StructType([
+cart_schema = StructType([
 
     StructField("id", IntegerType(), True),
 
@@ -110,7 +110,7 @@ carts_schema = StructType([
 ])
 
 # users schema
-users_schema = StructType([
+user_schema = StructType([
 
     StructField("id", IntegerType(), True),
     StructField("firstName", StringType(), True),
@@ -225,7 +225,7 @@ users_schema = StructType([
 ])
 
 # posts schema
-posts_schema = StructType([
+post_schema = StructType([
 
     StructField("id", IntegerType(), True),
     StructField("title", StringType(), True),
@@ -252,7 +252,7 @@ posts_schema = StructType([
 ])
 
 # comments schema
-comments_schema = StructType([
+comment_schema = StructType([
 
     StructField("id", IntegerType(), True),
     StructField("body", StringType(), True),
@@ -273,7 +273,7 @@ comments_schema = StructType([
 ])
 
 # quotes schema
-quotes_schema = StructType([
+quote_schema = StructType([
 
     StructField("id", IntegerType(), True),
     StructField("quote", StringType(), True),
@@ -282,7 +282,7 @@ quotes_schema = StructType([
 ])
 
 # todos schema
-todos_schema = StructType([
+todo_schema = StructType([
 
     StructField("id", IntegerType(), True),
     StructField("todo", StringType(), True),
@@ -292,7 +292,7 @@ todos_schema = StructType([
 ])
 
 # recipes schema
-recipes_schema = StructType([
+recipe_schema = StructType([
 
     StructField("id", IntegerType(), True),
     StructField("name", StringType(), True),
@@ -337,3 +337,14 @@ recipes_schema = StructType([
     )
 
 ])
+
+ENDPOINT_SCHEMAS = {
+    'products': product_schema,
+    'carts': cart_schema,
+    'users': user_schema,
+    'posts': post_schema,
+    'comments': comment_schema,
+    'quotes': quote_schema,
+    'todos': todo_schema,
+    'recipes': recipe_schema
+}
