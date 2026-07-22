@@ -1,7 +1,7 @@
 # this file shall have the api util functions
 
 import requests
-from config import *
+from .config import *
 
 
 # defining authenticate function
@@ -25,7 +25,7 @@ def authenticate(username=USERNAME, password=PASSWORD) -> str:
     return response.json()['accessToken']
 
 
-def fetch_data(endpoint: str, headers: dict[str, str], limit: int= 30, skip: int= 0) -> list:
+def fetch_data(endpoint: str, headers: dict[str, str], limit: int= PAGE_SIZE, skip: int= 0) -> list:
     """
     gets data from dummyjson.com as sent endpoint
     Args:
@@ -34,7 +34,7 @@ def fetch_data(endpoint: str, headers: dict[str, str], limit: int= 30, skip: int
         limit (int, optional): limit of data to fetch. Defaults to 30.
         skip (int, optional): skip number of data. Defaults to 0.
     
-    endpoint should be in valid_endpoints: list[str] = ['products', 'carts', 'recipes', 'users', 'posts']
+    endpoint should be in valid_endpoints: list[str] = ['products', 'carts', 'users', 'posts', 'comments', 'quotes', 'todos', 'recipes']
     """
 
     data_url = f'{BASE_URL}/{endpoint}'
@@ -46,4 +46,4 @@ def fetch_data(endpoint: str, headers: dict[str, str], limit: int= 30, skip: int
     response = requests.get(data_url, params=params, headers=headers)
     response.raise_for_status()
 
-    return response.json()[endpoint]
+    return response.json()

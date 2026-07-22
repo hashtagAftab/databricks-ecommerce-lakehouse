@@ -3,7 +3,7 @@
 from pyspark.sql.types import *
 
 # products schema
-product_schema = StructType([
+products_schema = StructType([
 
     StructField("id", IntegerType(), True),
     StructField("title", StringType(), True),
@@ -80,7 +80,7 @@ product_schema = StructType([
 ])
 
 # carts schema
-cart_schema = StructType([
+carts_schema = StructType([
 
     StructField("id", IntegerType(), True),
 
@@ -109,55 +109,8 @@ cart_schema = StructType([
 
 ])
 
-# recipes schema
-recipe_schema = StructType([
-
-    StructField("id", IntegerType(), True),
-    StructField("name", StringType(), True),
-
-    StructField(
-        "ingredients",
-        ArrayType(StringType()),
-        True
-    ),
-
-    StructField(
-        "instructions",
-        ArrayType(StringType()),
-        True
-    ),
-
-    StructField("prepTimeMinutes", IntegerType(), True),
-    StructField("cookTimeMinutes", IntegerType(), True),
-    StructField("servings", IntegerType(), True),
-
-    StructField("difficulty", StringType(), True),
-    StructField("cuisine", StringType(), True),
-
-    StructField("caloriesPerServing", IntegerType(), True),
-
-    StructField(
-        "tags",
-        ArrayType(StringType()),
-        True
-    ),
-
-    StructField("userId", IntegerType(), True),
-    StructField("image", StringType(), True),
-
-    StructField("rating", DoubleType(), True),
-    StructField("reviewCount", IntegerType(), True),
-
-    StructField(
-        "mealType",
-        ArrayType(StringType()),
-        True
-    )
-
-])
-
 # users schema
-user_schema = StructType([
+users_schema = StructType([
 
     StructField("id", IntegerType(), True),
     StructField("firstName", StringType(), True),
@@ -272,7 +225,7 @@ user_schema = StructType([
 ])
 
 # posts schema
-post_schema = StructType([
+posts_schema = StructType([
 
     StructField("id", IntegerType(), True),
     StructField("title", StringType(), True),
@@ -295,5 +248,92 @@ post_schema = StructType([
 
     StructField("views", IntegerType(), True),
     StructField("userId", IntegerType(), True)
+
+])
+
+# comments schema
+comments_schema = StructType([
+
+    StructField("id", IntegerType(), True),
+    StructField("body", StringType(), True),
+
+    StructField("postId", IntegerType(), True),
+    StructField("likes", IntegerType(), True),
+
+    StructField(
+        "user",
+        StructType([
+            StructField("id", IntegerType(), True),
+            StructField("username", StringType(), True),
+            StructField("fullName", StringType(), True)
+        ]),
+        True
+    )
+
+])
+
+# quotes schema
+quotes_schema = StructType([
+
+    StructField("id", IntegerType(), True),
+    StructField("quote", StringType(), True),
+    StructField("author", StringType(), True)
+
+])
+
+# todos schema
+todos_schema = StructType([
+
+    StructField("id", IntegerType(), True),
+    StructField("todo", StringType(), True),
+    StructField("completed", BooleanType(), True),
+    StructField("userId", IntegerType(), True)
+
+])
+
+# recipes schema
+recipes_schema = StructType([
+
+    StructField("id", IntegerType(), True),
+    StructField("name", StringType(), True),
+
+    StructField(
+        "ingredients",
+        ArrayType(StringType()),
+        True
+    ),
+
+    StructField(
+        "instructions",
+        ArrayType(StringType()),
+        True
+    ),
+
+    StructField("prepTimeMinutes", IntegerType(), True),
+    StructField("cookTimeMinutes", IntegerType(), True),
+    StructField("servings", IntegerType(), True),
+
+    StructField("difficulty", StringType(), True),
+    StructField("cuisine", StringType(), True),
+
+    StructField("caloriesPerServing", IntegerType(), True),
+
+    StructField(
+        "tags",
+        ArrayType(StringType()),
+        True
+    ),
+
+    StructField("userId", IntegerType(), True),
+    StructField("image", StringType(), True),
+
+    StructField("rating", DoubleType(), True),
+    StructField("reviewCount", IntegerType(), True),
+
+    StructField(
+        "mealType",
+        ArrayType(StringType()),
+        True
+    )
 
 ])
