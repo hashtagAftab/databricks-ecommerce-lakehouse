@@ -3,7 +3,7 @@
 from pyspark.sql.types import *
 
 # products schema
-product_schema = StructType([
+products_schema = StructType([
 
     StructField("id", IntegerType(), True),
     StructField("title", StringType(), True),
@@ -80,7 +80,7 @@ product_schema = StructType([
 ])
 
 # carts schema
-cart_schema = StructType([
+carts_schema = StructType([
 
     StructField("id", IntegerType(), True),
 
@@ -110,7 +110,7 @@ cart_schema = StructType([
 ])
 
 # users schema
-user_schema = StructType([
+users_schema = StructType([
 
     StructField("id", IntegerType(), True),
     StructField("firstName", StringType(), True),
@@ -225,7 +225,7 @@ user_schema = StructType([
 ])
 
 # posts schema
-post_schema = StructType([
+posts_schema = StructType([
 
     StructField("id", IntegerType(), True),
     StructField("title", StringType(), True),
@@ -252,7 +252,7 @@ post_schema = StructType([
 ])
 
 # comments schema
-comment_schema = StructType([
+comments_schema = StructType([
 
     StructField("id", IntegerType(), True),
     StructField("body", StringType(), True),
@@ -273,7 +273,7 @@ comment_schema = StructType([
 ])
 
 # quotes schema
-quote_schema = StructType([
+quotes_schema = StructType([
 
     StructField("id", IntegerType(), True),
     StructField("quote", StringType(), True),
@@ -282,7 +282,7 @@ quote_schema = StructType([
 ])
 
 # todos schema
-todo_schema = StructType([
+todos_schema = StructType([
 
     StructField("id", IntegerType(), True),
     StructField("todo", StringType(), True),
@@ -292,7 +292,7 @@ todo_schema = StructType([
 ])
 
 # recipes schema
-recipe_schema = StructType([
+recipes_schema = StructType([
 
     StructField("id", IntegerType(), True),
     StructField("name", StringType(), True),
@@ -339,12 +339,12 @@ recipe_schema = StructType([
 ])
 
 ENDPOINT_SCHEMAS = {
-    'products': product_schema,
-    'carts': cart_schema,
-    'users': user_schema,
-    'posts': post_schema,
-    'comments': comment_schema,
-    'quotes': quote_schema,
-    'todos': todo_schema,
-    'recipes': recipe_schema
+    'products': products_schema,
+    'carts': carts_schema,
+    'users': users_schema,
+    'posts': posts_schema,
+    'comments': comments_schema,
+    'quotes': quotes_schema,
+    'todos': todos_schema,
+    'recipes': recipes_schema
 }
